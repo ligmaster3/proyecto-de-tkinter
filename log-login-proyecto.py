@@ -88,7 +88,7 @@ class Registro:
                 host="localhost", 
                 user="root", 
                 password="",
-                database="proyecto"
+                database="hoteles"
                 )
             print("Conexion a la base de datos exitosa")
             return conn
@@ -112,7 +112,7 @@ class Registro:
         try:
             conn = self.conexion()
             cursor = conn.cursor()
-            query = "INSERT INTO clientes (nombre, apellido, edad, modelo, producto, cantidad, precio) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+            query = "INSERT INTO clientes (nombre, apellido, edad, cedula, sexo, cantidad, tiempo) VALUES (%s, %s, %s, %s, %s, %s, %s)"
             cursor.execute(query, (name, appe, eda, mod, prob, cant, preb))
             conn.commit()
             messagebox.showinfo("Exito", "Registro exitoso")
