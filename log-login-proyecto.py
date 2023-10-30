@@ -11,7 +11,7 @@ class Registro:
         self.wind.title("Formulario de Registro con tkinter y Python")
         self.wind.geometry("1100x640+100+50")
         self.wind.resizable(0,0)
-        self.wind.iconbitmap("imagen\hotel-icon")
+        self.wind.iconbitmap("imagen\hotel-icon.ico")
         
         #fondo++
         image = PhotoImage(file = "imagen\Patch-Notes.png")
