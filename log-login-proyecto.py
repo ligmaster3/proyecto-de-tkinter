@@ -67,17 +67,13 @@ class Registro:
         self.preb_label.pack(padx=6, pady=6)
         self.preb_entry = tk.Entry(marco)
         self.preb_entry.pack(padx=5, pady=5)
-
+        # img de btn de guardar
         img1 = PhotoImage(file="imagen\icono-guardar.png",width=25,height=25)
-       
+        
+        # botón  de registrar los datos
         self.reg_button = CTkButton(marco, text="REGISTRAR", command=self.registrar, image=img1,
                                     height=20,width=10,fg_color="green",corner_radius=10)
         self.reg_button.pack(padx=3, pady=3)
-
-        # Botón para mostrar registros
-        self.boton_limpiar=CTkButton(marco, text="MOSTRAR", command=self.mostrar,
-                                     height=20,width=10,fg_color="green",corner_radius=10)
-        self.boton_limpiar.pack(padx=3, pady=3)
 
         # Botón para cerrar
         self.boton_cancelar=CTkButton(marco, text="CERRAR", command=self.cerrar,
@@ -125,25 +121,6 @@ class Registro:
             messagebox.showinfo("Exito", "Registro exitoso")
         except mysql.connector.Error as err:
             messagebox.showerror("Error", f"No se pudo realizar el registro: {err}")
-        finally:
-            if conn:
-                conn.close()
-
-    def mostrar(self):
-        try:
-            conn = self.conexion()
-            cursor = conn.cursor()
-            query = "SELECT * FROM clientes"
-            cursor.execute(query)
-            result = cursor.fetchall()
-
-            if result:
-                for row in result:
-                    print(f"ID: {row[0]}, Nombre: {row[1]}, Apellido: {row[2]}, Edad: {row[3]}, Modelo: {row[4]}, Producto: {row[5]}, Cantidad: {row[6]}, Precio: {row[7]}")
-            else:
-                print("No hay registros en la base de datos")
-        except mysql.connector.Error as err:
-            print(f"Error al conectar a la base de datos: {err}")
         finally:
             if conn:
                 conn.close()
