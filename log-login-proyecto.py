@@ -9,22 +9,21 @@ class Registro:
         # Crear la ventana principal
         self.wind = ventana
         self.wind.title("Formulario de Registro con tkinter y Python")
-        self.wind.geometry("1100x640+100+50")
+        self.wind.geometry("1000x640+100+50")
         self.wind.resizable(0,0)
-        self.wind.iconbitmap("imagen\hotel-icon.ico")
+        self.wind.iconbitmap("imagen\icono-hotel.ico")
         
         #fondo++
-        image = PhotoImage(file = "imagen\Patch-Notes.png")
+        image = PhotoImage(file = "imagen\hoteles-dogs.png")
         fondo=tk.Label(self.wind,image=image).place(x=0,y=0,relwidth=1,relheight=1)
     
-            
         # Crear un contenedor        
-        marco = CTkFrame(ventana,corner_radius=10,width=100,fg_color="#E5E7E9")
-        titulo = tk.Label(ventana, text="REGISTRO DE USUARIO", bg="#6c757d", fg="white", width="94", height=2)
-        titulo.pack()
-        marco.pack(side="top")
+        marco = CTkFrame(ventana,corner_radius=10,width=100,height=2,fg_color="#E5E7E9")
+        titulo = tk.Label(ventana, text="REGISTRO DE USUARIO", bg="#6c757d",font=('Arial',14), fg="white", width="94", height=2)
+        titulo.pack(side="top")
+        marco.pack(side="left",fill="both")
 
-        self.titulo = tk.Label(marco, text="LOGIN",bg="#E5E7E9",width=35)
+        self.titulo = tk.Label(marco, text="LOGIN",bg="#E5E7E9",width=35,height=3)
         self.titulo.pack(side="top")
         # Caja de texto para ingresar el nombre
         self.name_label = tk.Label(marco, text="Nombre",bg="#E5E7E9")
@@ -67,11 +66,9 @@ class Registro:
         self.preb_label.pack(padx=6, pady=6)
         self.preb_entry = tk.Entry(marco)
         self.preb_entry.pack(padx=5, pady=5)
-        # img de btn de guardar
-        img1 = PhotoImage(file="imagen\icono-guardar.png",width=25,height=25)
         
         # botón  de registrar los datos
-        self.reg_button = CTkButton(marco, text="REGISTRAR", command=self.registrar, image=img1,
+        self.reg_button = CTkButton(marco, text="REGISTRAR", command=self.registrar,
                                     height=20,width=10,fg_color="green",corner_radius=10)
         self.reg_button.pack(padx=3, pady=3)
 
