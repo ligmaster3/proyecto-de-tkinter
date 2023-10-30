@@ -2,9 +2,9 @@
 /*!40014 SET FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET SQL_NOTES=0 */;
-CREATE DATABASE hoteles;
+CREATE DATABASE proyecto;
 
-USE hoteles;
+USE proyecto;
 
 DROP TABLE IF EXISTS clientes;
 CREATE TABLE `clientes` (
